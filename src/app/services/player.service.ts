@@ -29,26 +29,26 @@ export class PlayerService {
     this.player$.next({ currentSong: this.currentSong, songs: this.songs });
   }
 
-  next(){
-    if(this.songs.length && this.currentSong){
+  next() {
+    if (this.songs.length && this.currentSong) {
       const posizione = this.songs.indexOf(this.currentSong);
-      const next = posizione < (this.songs.length-1) ? posizione+1 : 0;
+      const next = posizione < this.songs.length - 1 ? posizione + 1 : 0;
       this.currentSong = this.songs[next];
       this.update();
-    }else return;
+    } else return;
   }
 
-  prev(){
-    if(this.songs.length && this.currentSong){
+  prev() {
+    if (this.songs.length && this.currentSong) {
       const posizione = this.songs.indexOf(this.currentSong);
-      const prev = posizione > 0 ? posizione-1 : (this.songs.length-1) ;
+      const prev = posizione > 0 ? posizione - 1 : this.songs.length - 1;
       this.currentSong = this.songs[prev];
       this.update();
-    }else return;
+    } else return;
   }
-  
-  setPicture(i:number){
-    if(i <= (this.songs.length - 1)){
+
+  setSong(i: number) {
+    if (i <= this.songs.length - 1) {
       this.currentSong = this.songs[i];
       this.update();
     }

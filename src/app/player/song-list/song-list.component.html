@@ -1,1 +1,17 @@
-<p>song-list works!</p>
+
+
+<div class="row mt-4 mb-3 ">
+
+    <div 
+    class="card" class="col-2" 
+    *ngFor="let img of (player$ | async)?.songs; let i=index" 
+    (click)="playerService.setSong(i)"
+    [ngClass]="{'selected': (img.id==(player$ | async)?.currentSong?.id) }"
+    >
+        <img [src]="img.image" class="card-img-top" [alt]="img.song">
+        <div class="card-body">
+          <p class="card-text">{{img.song}}</p>
+        </div>
+      </div>
+
+</div>

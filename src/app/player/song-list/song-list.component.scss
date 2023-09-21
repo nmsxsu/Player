@@ -1,0 +1,13 @@
+.card-img-top:hover{
+    width: 110%;
+    cursor: pointer;
+    transition: width 0.5s;
+}
+.card-img-top{
+    transition: width 0.5s;
+}
+
+.selected{
+    border-bottom: 2px solid #222;
+    background-color: #1DB954;
+}
