@@ -41,6 +41,7 @@ export class PlayerService {
       const posizione = this.songs.indexOf(this.currentSong);
       const next = posizione < this.songs.length - 1 ? posizione + 1 : 0;
       this.currentSong = this.songs[next];
+      this.progressbarValue = 0;
       this.update();
     } else return;
   }
