@@ -8,6 +8,7 @@ import { HeaderComponent } from './player/header/header.component';
 import { SongImageComponent } from './player/song-image/song-image.component';
 import { ActionsComponent } from './player/actions/actions.component';
 import { SongListComponent } from './player/song-list/song-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SongListComponent } from './player/song-list/song-list.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
