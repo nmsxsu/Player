@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DemoSongs, Song } from '../models/song.models';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, interval } from 'rxjs';
 import { IPlayer } from '../models/player.models';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class PlayerService {
   private currentSong: Song | undefined;
   private songs: Song[] = DemoSongs;
   private player$: BehaviorSubject<IPlayer>;
+  progressbarValue = 0;
+  curSec: number = 0;
 
   constructor() {
     if (this.songs.length) {
@@ -52,5 +54,23 @@ export class PlayerService {
       this.currentSong = this.songs[i];
       this.update();
     }
+  }
+  // playSong(durata: number) {
+  //   return setTimeout(() => {
+  //     this.next();
+  //   }, durata);
+  // }
+
+  startTimer(seconds: number) {
+    const timer$ = interval(1000);
+    const sub = timer$.subscribe((sec) => {
+      this.progressbarValue = (sec * 100) / seconds;
+      this.curSec = sec;
+
+      if (this.curSec === seconds) {
+        sub.unsubscribe();
+      }
+      console.log(this.progressbarValue);
+    });
   }
 }

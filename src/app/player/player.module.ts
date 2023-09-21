@@ -5,8 +5,7 @@ import { ActionsComponent } from './actions/actions.component';
 import { HeaderComponent } from './header/header.component';
 import { SongImageComponent } from './song-image/song-image.component';
 import { SongListComponent } from './song-list/song-list.component';
-
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -14,14 +13,9 @@ import { SongListComponent } from './song-list/song-list.component';
     ActionsComponent,
     HeaderComponent,
     SongImageComponent,
-    SongListComponent
+    SongListComponent,
   ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    PlayerComponent
-  ]
+  imports: [CommonModule, NgbModule],
+  exports: [PlayerComponent],
 })
-export class PlayerModule {
-}
+export class PlayerModule {}

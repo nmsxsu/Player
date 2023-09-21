@@ -1,13 +1,19 @@
-<div class="card" style="width: 18rem;">
-    <img [src]="(player$|async)?.currentSong?.image" [alt]="(player$|async)?.currentSong?.song">
+<div class="card" style="width: 18rem">
+  <img
+    [src]="(player$ | async)?.currentSong?.image"
+    [alt]="(player$ | async)?.currentSong?.song"
+  />
 
-    <div class="card-body">
-        <h5 class="card-title">{{(player$|async)?.currentSong?.album}}</h5>
-        <span>
-            <p class="card-text">{{(player$|async)?.currentSong?.artist}}</p>
-        </span>
-        <span>
-            <p class="card-text">{{(player$|async)?.currentSong?.duration}}</p>
-        </span>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ (player$ | async)?.currentSong?.album }}</h5>
+    <span>
+      <p class="card-text">{{ (player$ | async)?.currentSong?.artist }}</p>
+    </span>
+    <span>
+      <p class="card-text">{{ (player$ | async)?.currentSong?.duration }}</p>
+    </span>
+    <p>
+      <ngb-progressbar type="success" [value]="0"></ngb-progressbar>
+    </p>
+  </div>
 </div>
