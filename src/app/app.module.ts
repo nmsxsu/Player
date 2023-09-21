@@ -9,20 +9,17 @@ import { SongImageComponent } from './player/song-image/song-image.component';
 import { ActionsComponent } from './player/actions/actions.component';
 import { SongListComponent } from './player/song-list/song-list.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlayerModule } from './player/player.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PlayerComponent,
-    HeaderComponent,
-    SongImageComponent,
-    ActionsComponent,
-    SongListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    PlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
