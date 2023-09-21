@@ -10,8 +10,8 @@ export class PlayerService {
   private currentSong: Song | undefined;
   private songs: Song[] = DemoSongs;
   private player$: BehaviorSubject<IPlayer>;
-  progressbarValue = 0;
   curSec: number = 0;
+  progressbarValue = 0;
 
   constructor() {
     if (this.songs.length) {
@@ -20,6 +20,7 @@ export class PlayerService {
 
     this.player$ = new BehaviorSubject({
       currentSong: this.currentSong,
+      currentProgressbarValue: 0,
       songs: this.songs,
     });
   }
@@ -28,7 +29,11 @@ export class PlayerService {
   }
 
   private update() {
-    this.player$.next({ currentSong: this.currentSong, songs: this.songs });
+    this.player$.next({
+      currentSong: this.currentSong,
+      songs: this.songs,
+      currentProgressbarValue: this.progressbarValue,
+    });
   }
 
   next() {
@@ -71,6 +76,7 @@ export class PlayerService {
         sub.unsubscribe();
       }
       console.log(this.progressbarValue);
+      this.update();
     });
   }
 }

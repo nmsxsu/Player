@@ -13,7 +13,10 @@
       <p class="card-text">{{ (player$ | async)?.currentSong?.duration }}</p>
     </span>
     <p>
-      <ngb-progressbar type="success" [value]="0"></ngb-progressbar>
+      <ngb-progressbar
+        type="success"
+        [value]="(player$ | async)?.currentProgressbarValue ?? 0"
+      ></ngb-progressbar>
     </p>
   </div>
 </div>

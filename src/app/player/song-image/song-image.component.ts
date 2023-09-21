@@ -17,6 +17,6 @@ export class SongImageComponent {
     this.playerService.getPlayer$().subscribe((res: any) => {
       this.duration = res.currentSong.duration;
     });
-    this.playerService.startTimer(0);
+    this.playerService.startTimer(this.duration);
   }
 }
